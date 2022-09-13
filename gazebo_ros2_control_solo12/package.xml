@@ -44,6 +44,6 @@
 
   <export>
     <build_type>ament_cmake</build_type>
-    <!-- <gazebo_ros2_control_bolt plugin="${prefix}/gazebo_hardware_bolt_plugins.xml"/> -->
+    <gazebo_ros2_control_bolt plugin="${prefix}/gazebo_hardware_bolt_plugins.xml"/>
   </export>
 </package>

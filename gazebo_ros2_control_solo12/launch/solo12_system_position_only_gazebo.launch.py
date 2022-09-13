@@ -56,26 +56,26 @@ def generate_launch_description():
         output="screen",
     )
 
-    # spawn_controller = Node(
-    #     package="controller_manager",
-    #     executable="spawner.py",
-    #     arguments=["joint_state_broadcaster"],
-    #     output="screen",
-    # )
+    spawn_controller = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["joint_state_broadcaster"],
+        output="screen",
+    )
 
-    # spawn_forward_command_controller = Node(
-    #     package="controller_manager",
-    #     executable="spawner.py",
-    #     arguments=["forward_position_controller"],
-    #     output="screen",
-    # )
+    spawn_forward_command_controller = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["forward_position_controller"],
+        output="screen",
+    )
 
     return LaunchDescription(
         [
             gazebo,
             node_robot_state_publisher,
             spawn_entity,
-            # spawn_controller,
-            # spawn_forward_command_controller,
+            spawn_controller,
+            spawn_forward_command_controller,
         ]
     )

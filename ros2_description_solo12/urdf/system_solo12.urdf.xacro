@@ -96,5 +96,5 @@
       color_name="${color_name}"
       color="${color}"
       opacity="${opacity}"/>
-  </xacro:macro>
+</xacro:macro> 
 </robot>

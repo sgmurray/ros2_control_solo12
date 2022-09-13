@@ -32,11 +32,18 @@ https://github.com/open-dynamic-robot-initiative/robot_properties_bolt/blob/mast
     </xacro:if>
   </xacro:if>
 
-  <!-- <xacro:include filename="$(find ros2_description_solo12)/ros2_control/system_solo12.ros2_control.xacro" /> -->
+  <xacro:include filename="$(find ros2_description_solo12)/ros2_control/system_solo12.ros2_control.xacro" />
 
   <!-- ros_control plugin for Gazebo --> 
   
   <!-- THE PLUGIN IS MISSING -->
+  <xacro:if value="$(arg use_sim)">
+    <gazebo>
+      <plugin name="gazebo_ros2_bolt" filename="libgazebo_ros2_control_solo12.so">
+	    <parameters>$(find gazebo_ros2_control_solo12)/config/bolt_gazebo_config_controller.yaml</parameters>
+      </plugin>
+    </gazebo>
+  </xacro:if>
 
   <xacro:if value="$(arg use_sim)">
     <xacro:if value="$(arg use_crane)">
@@ -53,8 +60,8 @@ https://github.com/open-dynamic-robot-initiative/robot_properties_bolt/blob/mast
       opacity="${opacity}"
         />
 
-  <!-- <xacro:system_solo112_ros2_control
+  <xacro:system_solo12_ros2_control
     name="SystemBoltRos2Control" prefix="$(arg prefix)" use_fake_hardware="$(arg use_fake_hardware)"
-      use_sim="$(arg use_sim)"/> -->
+      use_sim="$(arg use_sim)"/>
 
 </robot>
